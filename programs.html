@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyline University Programs</title>
+  <style>
+    /* Overall Page Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffe4e1; /* Light pink background */
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: #87ceeb; /* Sky blue */
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #333;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      display: block;
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      background-color: #575757;
+    }
+
+    /* Programs Section */
+    .programs {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .programs h2 {
+      color: #333;
+    }
+
+    .programs label {
+      font-weight: bold;
+    }
+
+    .programs select {
+      padding: 5px;
+      margin-left: 10px;
+    }
+
+    .program {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .program h3 {
+      color: #87ceeb; /* Sky blue */
+    }
+
+    .program p {
+      font-size: 1.1em;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #87ceeb; /* Sky blue */
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Skyline University</h1>
+    <p>Explore Our Programs</p>
+  </header>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="admissions.html">Admissions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Programs Section -->
+  <section class="programs">
+    <h2>Our Programs</h2>
+    <label for="program-category">Filter by Category:</label>
+    <select id="program-category" onchange="filterPrograms()">
+      <option value="all">All Programs</option>
+      <option value="undergraduate">Undergraduate</option>
+      <option value="postgraduate">Postgraduate</option>
+    </select>
+
+    <div id="program-list">
+      <div class="program" data-category="undergraduate">
+        <h3>Bachelor of Science in Computer Science</h3>
+        <p>Duration: 4 years</p>
+      </div>
+      <div class="program" data-category="undergraduate">
+        <h3>Bachelor of Arts in Business</h3>
+        <p>Duration: 3 years</p>
+      </div>
+      <div class="program" data-category="postgraduate">
+        <h3>Master of Science in Data Science</h3>
+        <p>Duration: 2 years</p>
+      </div>
+      <div class="program" data-category="postgraduate">
+        <h3>Master of Arts in Business Administration</h3>
+        <p>Duration: 2 years</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Skyline University. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Filtering -->
+  <script>
+    function filterPrograms() {
+      var category = document.getElementById("program-category").value;
+      var programs = document.querySelectorAll(".program");
+
+      programs.forEach(function(program) {
+        if (category === "all") {
+          program.style.display = "block"; // Show all programs
+        } else if (program.getAttribute("data-category") === category) {
+          program.style.display = "block"; // Show only selected category
+        } else {
+          program.style.display = "none"; // Hide other categories
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
